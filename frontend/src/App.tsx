@@ -3,14 +3,9 @@ import { useState } from "react";
 import "./App.css";
 import { TodoList } from "./component";
 import { Button, Container, Stack, TextField } from "@mui/material";
+import { initialTodos } from "./constants";
 
-const initialTodos = [
-  { id: "1", text: "Buy groceries", completed: false },
-  { id: "2", text: "Walk the dog", completed: false },
-  { id: "3", text: "Read a book", completed: false },
-  { id: "4", text: "Write code", completed: false },
-  { id: "5", text: "Exercise", completed: false },
-];
+
 function App() {
   const [todos, setTodos] = useState(initialTodos);
   const [newTodoText, setNewTodoText] = useState("");
@@ -44,7 +39,6 @@ function App() {
   return (
     <>
       <Container>
-        <div className="">
           <h1>To-Do List</h1>
           <Stack direction={'row'} gap={1}>
             <TextField
@@ -69,7 +63,6 @@ function App() {
             toggleComplete={toggleComplete}
             deleteTodo={deleteTodo}
           />
-        </div>
       </Container>
     </>
   );

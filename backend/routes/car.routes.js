@@ -1,18 +1,11 @@
 const express = require("express");
 const Car = require("../models/Car");
+const { createCar } = require("../controller/car.controller");
 
 const router = express.Router();
 
 // Create a new car
-router.post("/", async (req, res) => {
-  try {
-    const newCar = new Car(req.body);
-    await newCar.save();
-    res.status(201).json(newCar);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.post("/", createCar);
 
 // Get all cars
 router.get("/", async (req, res) => {
